@@ -1,0 +1,14 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+const html = "<p>In der Kategorie Haarpflege finden Sie verschiedene Produkte zur Pflege Ihrer Haare. Denken Sie an einen Bartbalsam, einen Dampfglätter, ein Lockenstab, einen Volumenpuder und vieles mehr. Schauen Sie sich alle unsere ausführlichen Bewertungen zu den Artikeln in der Kategorie Haarpflege an.</p>\n<ul><li>Bartbalsam</li></ul>\n<ul><li>Dampfglätter</li></ul>\n<ul><li><a href=\"/beste-lockenstab/\">Lockenstab</a></li></ul>\n<ul><li><a href=\"/beste-volumenpuder/\">Volumenpuder</a></li></ul>";
+const faq = [];
+---
+<PageLayout
+  title={"Haarpflege - erwachsenenfragen.de"}
+  description={"In der Kategorie Haarpflege finden Sie verschiedene Produkte zur Pflege Ihrer Haare. Denken Sie an einen Bartbalsam, einen Dampfglätter, ein Lockenstab, einen Volumenpuder und vieles mehr. Schauen Sie sich alle unsere ausführlichen Bewertungen zu den Artikeln in der Kategorie Haarpflege an."}
+  h1={"Haarpflege"}
+  faq={faq}
+  crumb={[{ label: "Home", href: "/" }]}
+>
+  <Fragment set:html={html} />
+</PageLayout>

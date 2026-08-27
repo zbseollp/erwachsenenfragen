@@ -1,0 +1,14 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+const html = "<h2 id=\"nehmen-sie-kontakt-mit-uns-auf\">Nehmen Sie Kontakt mit uns auf!</h2>\n<p>Haben Sie Fragen oder Anmerkungen zu unserer Website? Wenn ja, können Sie das Formular auf dieser Seite ausfüllen, um mit unserer Redaktion in Kontakt zu treten. Wenn Sie ein Thema haben, über das Sie gerne einen Blog sehen würden, lassen Sie es uns wissen. Auch wenn Sie auf dieser Website werben möchten, hinterlassen Sie uns bitte eine Nachricht. Unsere Redakteure stehen Ihnen jeden Tag zur Verfügung.</p>\n<p>Your Name</p>\n<p>Your email address</p>\n<p>Message</p>";
+const faq = [];
+---
+<PageLayout
+  title={"Kontaktieren Sie uns - AdultVragen.de"}
+  description={"Sie möchten Kontakt zu unserer Redaktion aufnehmen? Dann können Sie dies ganz einfach über unsere Kontaktseite tun. Unser Team steht Ihnen jeden Tag zur Verfügung!"}
+  h1={"Kontaktieren Sie uns - AdultVragen.de"}
+  faq={faq}
+  crumb={[{ label: "Home", href: "/" }]}
+>
+  <Fragment set:html={html} />
+</PageLayout>

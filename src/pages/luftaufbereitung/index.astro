@@ -1,0 +1,14 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+const html = "<p>In der Kategorie Luftaufbereitung finden Sie verschiedene Produkte zur Aufrechterhaltung der Luftqualität zu Hause oder am Arbeitsplatz. Denken Sie an einen Aroma-Diffusor, eine Luftbefeuchter, einen Luftentfeuchter, einen Luftreiniger und vieles mehr. Sehen Sie sich alle unsere ausführlichen Bewertungen zu den Produkten in der Kategorie Luftaufbereitung an.</p>\n<ul><li>Aroma-Diffusor</li></ul>\n<ul><li>Luftbefeuchter</li><li>Luftentfeuchter</li><li><a href=\"/beste-luftreiniger/\">Luftreiniger</a></li></ul>\n<ul><li><a href=\"/beste-ventilator/\">Ventilator</a></li></ul>\n<ul><li><a href=\"/beste-weihrauch/\">Weihrauch</a></li></ul>";
+const faq = [];
+---
+<PageLayout
+  title={"Luftaufbereitung - erwachsenenfragen.de"}
+  description={"In der Kategorie Luftaufbereitung finden Sie verschiedene Produkte zur Aufrechterhaltung der Luftqualität zu Hause oder am Arbeitsplatz. Denken Sie an einen Aroma-Diffusor, eine Luftbefeuchter, einen Luftentfeuchter, einen Luftreiniger und vieles mehr. Sehen Sie sich alle unsere ausführlichen Bewertungen zu den Produkten in der Kategorie Luftaufbereitung an."}
+  h1={"Luftaufbereitung"}
+  faq={faq}
+  crumb={[{ label: "Home", href: "/" }]}
+>
+  <Fragment set:html={html} />
+</PageLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
+const html = "<h4 id=\"die-website-f-r-alle-fragen-zum-thema-sex\">Die Website für alle Fragen zum Thema Sex.</h4>\n<h3 id=\"enthaarungscreme\">Enthaarungscreme</h3>\n<h3 id=\"sexspielzeug\">Sexspielzeug</h3>\n<h3 id=\"cosplay\">Cosplay</h3>\n<h3 id=\"lgbtq\">LGBTQ+</h3>\n<h3 id=\"partnersuche\">Partnersuche</h3>\n<h3 id=\"mehr\">Mehr...</h3>\n<h2 id=\"letzte-fragen\">Letzte Fragen</h2>\n<p>Sehen Sie sich hier die neuesten Fragen an, die auf unserer Website diskutiert werden, und unterhalten Sie sich mit uns.</p>\n<h2 id=\"stellen-sie-ihre-frage-hier\">Stellen Sie Ihre Frage hier</h2>\n<h4 id=\"haben-sie-eine-frage-und-m-chten-sie-eine-schnelle-antwort-f\">Haben Sie eine Frage und möchten Sie eine schnelle Antwort? Fragen Sie hier</h4>\n<h2 id=\"bewertungen\">Bewertungen</h2>\n<p>Hier finden Sie die neuesten Rezensionen.</p>\n<h4 id=\"gesichtsepilierer\">Gesichtsepilierer</h4>\n<h4 id=\"gesichtsreiniger\">Gesichtsreiniger</h4>\n<h4 id=\"lippenbalsam\">Lippenbalsam</h4>\n<h4 id=\"lippenstift\">Lippenstift</h4>\n<h4 id=\"lockenstab\">Lockenstab</h4>\n<h4 id=\"make-up-schwamm\">Make up Schwamm</h4>\n<h4 id=\"rasierapparat\">Rasierapparat</h4>\n<h4 id=\"rasierpinsel\">Rasierpinsel</h4>\n<h4 id=\"rasierspiegel\">Rasierspiegel</h4>\n<h4 id=\"selbstbraeuner\">Selbstbraeuner</h4>\n<h4 id=\"volumenpuder\">Volumenpuder</h4>\n<h4 id=\"4k-beamer\">4k Beamer</h4>\n<h4 id=\"fotodrucker-f-r-10-x-15-cm\">Fotodrucker für 10 X 15 Cm</h4>\n<h4 id=\"satin-kopfkissenbezug\">Satin-Kopfkissenbezug</h4>\n<h2 id=\"beliebte-produkte\">Beliebte Produkte</h2>\n<p>Produkte, die wir empfehlen.</p>\n<h4 id=\"aroma-diffusor\">Aroma-Diffusor</h4>\n<h4 id=\"entgiftungstee\">Entgiftungstee</h4>\n<h4 id=\"luftbefeuchter\">Luftbefeuchter</h4>\n<h4 id=\"luftentfeuchter\">Luftentfeuchter</h4>\n<h4 id=\"luftreiniger\">Luftreiniger</h4>\n<h4 id=\"weihrauch\">Weihrauch</h4>\n<h4 id=\"abdeckstift\">Abdeckstift</h4>\n<h4 id=\"badeschaum\">Badeschaum</h4>\n<h4 id=\"bartbalsam\">Bartbalsam</h4>\n<h4 id=\"damenrasierer\">Damenrasierer</h4>\n<h4 id=\"duschschaum\">Duschschaum</h4>\n<h4 id=\"entwickler\">Entwickler</h4>\n<h4 id=\"epilierer\">Epilierer</h4>\n<h4 id=\"foundation-pinsel\">Foundation-Pinsel</h4>\n<h2 id=\"stellen-sie-eine-frage\">Stellen Sie eine Frage.</h2>\n<p>Ist die Antwort auf Ihre Frage hier noch nicht aufgeführt? Dann können Sie Ihre Frage hier ganz einfach selbst stellen. Unsere Nutzer werden Ihnen dann Antworten geben.</p>";
+---
+<BaseLayout title={"Fragen von Erwachsenen - AdultVragen.de"} description={"AdultVragen.de ist die Anlaufstelle für alle Ihre Sex-Fragen. Unsere Benutzer werden Ihnen täglich Antworten auf alle Ihre Fragen geben."}>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{"Fragen für das Schlafzimmer"}</h1>
+      <p>{"AdultVragen.de ist die Anlaufstelle für alle Ihre Sex-Fragen. Unsere Benutzer werden Ihnen täglich Antworten auf alle Ihre Fragen geben."}</p>
+      <div class="hero-actions">
+        <a class="btn" href="/fragen-stellen/">Stelle eine Frage</a>
+        <a class="btn btn-ghost" href="/blog/">Blog</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="prose"><Fragment set:html={html} /></div>
+    </div>
+  </section>
+  {posts.length > 0 && (
+    <section class="section" style="border-top:1px solid var(--border)">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Neueste Artikel</h2>
+          <p><a href="/blog/">Alle Artikel</a></p>
+        </div>
+        <div class="grid">
+          {posts.map((post) => (
+            <a class="card" href={`/${post.id}/`}>
+              <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
+                {post.data.pubDate.toLocaleDateString("de-DE", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </time>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+const html = "<p>In der Kategorie Elektronische Geräte finden Sie verschiedene Elektrogeräte für Freizeit oder Beruf. Denken Sie an eine Babytrage, eine Hundeleine, einen GPS-Tracker, einen Hundefriseur und vieles mehr. Schauen Sie sich alle unsere ausführlichen Produktbewertungen in der Kategorie Elektronische Geräte an.</p>\n<ul><li><a href=\"/beste-4k-beamer/\">4k Beamer</a></li></ul>\n<ul><li><a href=\"/beste-fernseher/\">Fernseher</a></li><li>Fotodrucker für 10 X 15 Cm</li></ul>\n<ul><li>Smart Tv 32 Zoll</li><li><a href=\"/beste-smart-tv-40-zoll/\">Smart Tv 40 Zoll</a></li><li><a href=\"/beste-smart-tv-50-zoll/\">Smart Tv 50 Zoll</a></li><li><a href=\"/beste-smart-tv-55-zoll/\">Smart Tv 55 Zoll</a></li><li><a href=\"/beste-smart-tv-65-zoll/\">Smart Tv 65 Zoll</a></li></ul>";
+const faq = [];
+---
+<PageLayout
+  title={"Elektronische Geräte - erwachsenenfragen.de"}
+  description={"In der Kategorie Elektronische Geräte finden Sie verschiedene Elektrogeräte für Freizeit oder Beruf. Denken Sie an eine Babytrage, eine Hundeleine, einen GPS-Tracker, einen Hundefriseur und vieles mehr. Schauen Sie sich alle unsere ausführlichen Produktbewertungen in der Kategorie Elektronische Geräte an."}
+  h1={"Elektronische Geräte"}
+  faq={faq}
+  crumb={[{ label: "Home", href: "/" }]}
+>
+  <Fragment set:html={html} />
+</PageLayout>

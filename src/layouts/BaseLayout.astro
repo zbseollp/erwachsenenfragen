@@ -1,0 +1,155 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  faq?: { q: string; a: string }[];
+}
+const { title, description = "", canonical, faq = [] } = Astro.props;
+const site = "https://erwachsenenfragen.de";
+const url = canonical ?? new URL(Astro.url.pathname, site).href;
+const faqLd = faq.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    }
+  : null;
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={url} />
+    <meta property="og:site_name" content={"Erwachsenenfragen"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Questrial&display=swap"
+    />
+    <link rel="stylesheet" href="/assets/site.css" />
+    {faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
+  </head>
+  <body>
+    <a class="skip" href="#main">Zum Inhalt springen</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label={"Erwachsenenfragen"}>
+          <img src="/logo.svg" alt={"Erwachsenenfragen"} width="431" height="48" />
+        </a>
+        <nav class="nav" aria-label="Hauptmenü">
+          <a href="/"{...(Astro.url.pathname === "/" ? { "aria-current": "page" } : {})}>Home</a>
+      <a href="/fragen-anzeigen/"{...(Astro.url.pathname === "/fragen-anzeigen/" ? { "aria-current": "page" } : {})}>Fragen ansehen</a>
+      <a href="/fragen-stellen/"{...(Astro.url.pathname === "/fragen-stellen/" ? { "aria-current": "page" } : {})}>Fragen stellen</a>
+      <a href="/bettwaesche-und-moebel/"{...(Astro.url.pathname === "/bettwaesche-und-moebel/" ? { "aria-current": "page" } : {})}>Bettwäsche und Möbel</a>
+      <a href="/gesichtspflege-und-make-up/"{...(Astro.url.pathname === "/gesichtspflege-und-make-up/" ? { "aria-current": "page" } : {})}>Gesichtspflege</a>
+      <a href="/blog/"{...(Astro.url.pathname === "/blog/" ? { "aria-current": "page" } : {})}>Blog</a>
+      <a href="/uber-uns/"{...(Astro.url.pathname === "/uber-uns/" ? { "aria-current": "page" } : {})}>Über uns</a>
+        </nav>
+        <a class="btn-cta" href="/fragen-stellen/">Stelle eine Frage</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"
+            ><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          /></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav wrap" id="mobile-nav" aria-label="Mobiles Menü">
+        <a href="/">Home</a>
+      <a href="/fragen-anzeigen/">Fragen ansehen</a>
+      <a href="/fragen-stellen/">Fragen stellen</a>
+      <a href="/bettwaesche-und-moebel/">Bettwäsche und Möbel</a>
+      <a href="/gesichtspflege-und-make-up/">Gesichtspflege</a>
+      <a href="/blog/">Blog</a>
+      <a href="/uber-uns/">Über uns</a>
+        <a href="/fragen-stellen/">Stelle eine Frage</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-about">
+            <a class="brand" href="/" aria-label={"Erwachsenenfragen"}>
+              <img src="/logo.svg" alt={"Erwachsenenfragen"} width="431" height="48" />
+            </a>
+            <p>Erwachsenenfragen.de ist die Website für alle Erwachsenen, die Fragen zum Sexualleben haben. Hier können Sie Fragen stellen und Fragen anderer Nutzer beantworten.</p>
+          </div>
+          <div class="footer-cols">
+      <div>
+        <h4>Kategorien</h4>
+        <ul>
+          <li><a href="/bettwaesche-und-moebel/">Bettwäsche und Möbel</a></li>
+          <li><a href="/gesichtspflege-und-make-up/">Gesichtspflege und Make-up</a></li>
+          <li><a href="/koerperpflege/">Körperpflege</a></li>
+          <li><a href="/haarpflege/">Haarpflege</a></li>
+          <li><a href="/elektronische-geraete/">Elektronische Geräte</a></li>
+          <li><a href="/luftaufbereitung/">Luftaufbereitung</a></li>
+          <li><a href="/heimzubehoer-und-sicherheit/">Heimzubehör und Sicherheit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Beliebt</h4>
+        <ul>
+          <li><a href="/beste-luftreiniger/">Luftreiniger</a></li>
+          <li><a href="/beste-ventilator/">Ventilator</a></li>
+          <li><a href="/beste-4k-beamer/">4K Beamer</a></li>
+          <li><a href="/beste-smart-tv-55-zoll/">Smart TV 55 Zoll</a></li>
+          <li><a href="/beste-lippenstift/">Lippenstift</a></li>
+          <li><a href="/beste-epilierer/">Epilierer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="/fragen-anzeigen/">Fragen ansehen</a></li>
+          <li><a href="/fragen-stellen/">Fragen stellen</a></li>
+          <li><a href="/anmeldung/">Anmeldung</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/uber-uns/">Über uns</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+          <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/sitemap/">Sitemap</a></li>
+        </ul>
+      </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Erwachsenenfragen &middot; erwachsenenfragen.de</p>
+          <p>Als Partner verdienen wir an qualifizierten Verkäufen.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const t = document.querySelector(".menu-toggle");
+      const n = document.getElementById("mobile-nav");
+      t?.addEventListener("click", () => {
+        const open = n?.classList.toggle("open");
+        t.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    </script>
+  </body>
+</html>

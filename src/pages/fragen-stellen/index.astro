@@ -1,0 +1,14 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+const html = "<h2 id=\"alle-fragen-anzeigen\">Alle Fragen anzeigen</h2>\n<p>Auf dieser Seite finden Sie eine Übersicht über alle Fragen, die bereits auf unserer Website diskutiert wurden. Vielleicht ist die Antwort, die Sie suchen, hier bereits aufgeführt. Ist dies nicht der Fall? Dann können Sie Ihre Frage ganz einfach selbst einreichen.</p>";
+const faq = [];
+---
+<PageLayout
+  title={"Stellen Sie Ihre Frage - AdultVragen.de"}
+  description={"Haben Sie eine Frage und finden Sie die Antwort nicht auf unserer Website? Dann können Sie hier einfach und schnell Ihre Frage stellen."}
+  h1={"Stellen Sie Ihre Frage - AdultVragen.de"}
+  faq={faq}
+  crumb={[{ label: "Home", href: "/" }]}
+>
+  <Fragment set:html={html} />
+</PageLayout>
