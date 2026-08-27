@@ -51,14 +51,13 @@ const faqLd = faq.length
         <a class="brand" href="/" aria-label={"Erwachsenenfragen"}>
           <img src="/logo.svg" alt={"Erwachsenenfragen"} width="431" height="48" />
         </a>
-        <nav class="nav" aria-label="Hauptmenü">
-          <a href="/"{...(Astro.url.pathname === "/" ? { "aria-current": "page" } : {})}>Home</a>
-      <a href="/fragen-anzeigen/"{...(Astro.url.pathname === "/fragen-anzeigen/" ? { "aria-current": "page" } : {})}>Fragen ansehen</a>
-      <a href="/fragen-stellen/"{...(Astro.url.pathname === "/fragen-stellen/" ? { "aria-current": "page" } : {})}>Fragen stellen</a>
-      <a href="/bettwaesche-und-moebel/"{...(Astro.url.pathname === "/bettwaesche-und-moebel/" ? { "aria-current": "page" } : {})}>Bettwäsche und Möbel</a>
-      <a href="/gesichtspflege-und-make-up/"{...(Astro.url.pathname === "/gesichtspflege-und-make-up/" ? { "aria-current": "page" } : {})}>Gesichtspflege</a>
-      <a href="/blog/"{...(Astro.url.pathname === "/blog/" ? { "aria-current": "page" } : {})}>Blog</a>
-      <a href="/uber-uns/"{...(Astro.url.pathname === "/uber-uns/" ? { "aria-current": "page" } : {})}>Über uns</a>
+        <nav class="nav" aria-label="Hauptmenue">
+          <div class="nav-item" data-nav-group><a class="nav-link" href="/bettwaesche-und-moebel/" aria-expanded="false" {...(Astro.url.pathname === "/bettwaesche-und-moebel/" ? { "aria-current": "page" } : {})}>Schlafzimmer<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="mega"><div class="mega-grid"><a href="/beste-pouf/">Pouf</a><a href="/beste-sitzsack/">Sitzsack</a><a href="/beste-betttisch/">Betttisch</a><a href="/beste-beistelltisch/">Beistelltisch</a><a href="/beste-kleiderschrank/">Kleiderschrank</a><a href="/beste-matratzenbezug/">Matratzenbezug</a><a href="/beste-matratzenschoner/">Matratzenschoner</a><a href="/beste-satin-kopfkissenbezug/">Satin-Kopfkissenbezug</a></div><a class="mega-all" href="/bettwaesche-und-moebel/">Alles ansehen &rarr;</a></div></div>
+          <div class="nav-item" data-nav-group><a class="nav-link" href="/gesichtspflege-und-make-up/" aria-expanded="false" {...(Astro.url.pathname === "/gesichtspflege-und-make-up/" ? { "aria-current": "page" } : {})}>Pflege<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="mega"><div class="mega-grid"><a href="/beste-epilierer/">Epilierer</a><a href="/beste-entwickler/">Entwickler</a><a href="/beste-lippenstift/">Lippenstift</a><a href="/beste-abdeckstift/">Abdeckstift</a><a href="/beste-lippenbalsam/">Lippenbalsam</a><a href="/beste-gesichtsreiniger/">Gesichtsreiniger</a><a href="/beste-gesichtsepilierer/">Gesichtsepilierer</a><a href="/beste-foundation-pinsel/">Foundation-Pinsel</a><a href="/beste-make-up-schwamm/">Make-up-Schwamm</a></div><a class="mega-all" href="/gesichtspflege-und-make-up/">Alles ansehen &rarr;</a></div></div>
+          <div class="nav-item" data-nav-group><a class="nav-link" href="/elektronische-geraete/" aria-expanded="false" {...(Astro.url.pathname === "/elektronische-geraete/" ? { "aria-current": "page" } : {})}>Elektronik<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="mega"><div class="mega-grid"><a href="/beste-4k-beamer/">4K Beamer</a><a href="/beste-fernseher/">Fernseher</a><a href="/beste-smart-tv-40-zoll/">Smart TV 40 Zoll</a><a href="/beste-smart-tv-50-zoll/">Smart TV 50 Zoll</a><a href="/beste-smart-tv-55-zoll/">Smart TV 55 Zoll</a><a href="/beste-smart-tv-65-zoll/">Smart TV 65 Zoll</a></div><a class="mega-all" href="/elektronische-geraete/">Alles ansehen &rarr;</a></div></div>
+          <div class="nav-item" data-nav-group><a class="nav-link" href="/luftaufbereitung/" aria-expanded="false" {...(Astro.url.pathname === "/luftaufbereitung/" ? { "aria-current": "page" } : {})}>Luft &amp; Heim<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="mega"><div class="mega-grid"><a href="/beste-luftreiniger/">Luftreiniger</a><a href="/beste-ventilator/">Ventilator</a><a href="/beste-weihrauch/">Weihrauch</a><a href="/beste-elektro-heizkoerper/">Elektro-Heizkoerper</a><a href="/beste-feuerloescher/">Feuerloescher</a><a href="/beste-tuerstopper/">Tuerstopper</a></div><a class="mega-all" href="/luftaufbereitung/">Alles ansehen &rarr;</a></div></div>
+          <div class="nav-item"><a class="nav-link" href="/fragen-anzeigen/" {...(Astro.url.pathname === "/fragen-anzeigen/" ? { "aria-current": "page" } : {})}>Fragen</a></div>
+          <div class="nav-item"><a class="nav-link" href="/blog/" {...(Astro.url.pathname === "/blog/" ? { "aria-current": "page" } : {})}>Blog</a></div>
         </nav>
         <a class="btn-cta" href="/fragen-stellen/">Stelle eine Frage</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
@@ -67,15 +66,14 @@ const faqLd = faq.length
           /></svg>
         </button>
       </div>
-      <nav class="mobile-nav wrap" id="mobile-nav" aria-label="Mobiles Menü">
-        <a href="/">Home</a>
-      <a href="/fragen-anzeigen/">Fragen ansehen</a>
-      <a href="/fragen-stellen/">Fragen stellen</a>
-      <a href="/bettwaesche-und-moebel/">Bettwäsche und Möbel</a>
-      <a href="/gesichtspflege-und-make-up/">Gesichtspflege</a>
-      <a href="/blog/">Blog</a>
-      <a href="/uber-uns/">Über uns</a>
-        <a href="/fragen-stellen/">Stelle eine Frage</a>
+      <nav class="mobile-nav wrap" id="mobile-nav" aria-label="Mobiles Menue">
+        <details class="m-group"><summary>Schlafzimmer</summary><div class="m-links"><a href="/bettwaesche-und-moebel/"><strong>Alles ansehen</strong></a><a href="/beste-pouf/">Pouf</a><a href="/beste-sitzsack/">Sitzsack</a><a href="/beste-betttisch/">Betttisch</a><a href="/beste-beistelltisch/">Beistelltisch</a><a href="/beste-kleiderschrank/">Kleiderschrank</a><a href="/beste-matratzenbezug/">Matratzenbezug</a><a href="/beste-matratzenschoner/">Matratzenschoner</a><a href="/beste-satin-kopfkissenbezug/">Satin-Kopfkissenbezug</a></div></details>
+        <details class="m-group"><summary>Pflege</summary><div class="m-links"><a href="/gesichtspflege-und-make-up/"><strong>Alles ansehen</strong></a><a href="/beste-epilierer/">Epilierer</a><a href="/beste-entwickler/">Entwickler</a><a href="/beste-lippenstift/">Lippenstift</a><a href="/beste-abdeckstift/">Abdeckstift</a><a href="/beste-lippenbalsam/">Lippenbalsam</a><a href="/beste-gesichtsreiniger/">Gesichtsreiniger</a><a href="/beste-gesichtsepilierer/">Gesichtsepilierer</a><a href="/beste-foundation-pinsel/">Foundation-Pinsel</a><a href="/beste-make-up-schwamm/">Make-up-Schwamm</a></div></details>
+        <details class="m-group"><summary>Elektronik</summary><div class="m-links"><a href="/elektronische-geraete/"><strong>Alles ansehen</strong></a><a href="/beste-4k-beamer/">4K Beamer</a><a href="/beste-fernseher/">Fernseher</a><a href="/beste-smart-tv-40-zoll/">Smart TV 40 Zoll</a><a href="/beste-smart-tv-50-zoll/">Smart TV 50 Zoll</a><a href="/beste-smart-tv-55-zoll/">Smart TV 55 Zoll</a><a href="/beste-smart-tv-65-zoll/">Smart TV 65 Zoll</a></div></details>
+        <details class="m-group"><summary>Luft &amp; Heim</summary><div class="m-links"><a href="/luftaufbereitung/"><strong>Alles ansehen</strong></a><a href="/beste-luftreiniger/">Luftreiniger</a><a href="/beste-ventilator/">Ventilator</a><a href="/beste-weihrauch/">Weihrauch</a><a href="/beste-elektro-heizkoerper/">Elektro-Heizkoerper</a><a href="/beste-feuerloescher/">Feuerloescher</a><a href="/beste-tuerstopper/">Tuerstopper</a></div></details>
+        <a href="/fragen-anzeigen/">Fragen</a>
+        <a href="/blog/">Blog</a>
+        <a href="/fragen-stellen/"><strong>Stelle eine Frage</strong></a>
       </nav>
     </header>
 
@@ -143,13 +141,61 @@ const faqLd = faq.length
       </div>
     </footer>
 
+    <button class="backtotop" type="button" aria-label={"Nach oben"} data-backtotop>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"
+        ><path d="M9 14V4M4 8l5-4 5 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+        stroke-linejoin="round"/></svg>
+    </button>
+
     <script>
+      // mobile menu
       const t = document.querySelector(".menu-toggle");
       const n = document.getElementById("mobile-nav");
       t?.addEventListener("click", () => {
         const open = n?.classList.toggle("open");
         t.setAttribute("aria-expanded", open ? "true" : "false");
       });
+
+      // desktop mega menu: hover on pointer devices, click/keyboard everywhere
+      document.querySelectorAll("[data-nav-group]").forEach((item) => {
+        const link = item.querySelector(".nav-link");
+        let timer;
+        const open = (v) => {
+          item.dataset.open = v ? "true" : "false";
+          link?.setAttribute("aria-expanded", v ? "true" : "false");
+        };
+        item.addEventListener("mouseenter", () => { clearTimeout(timer); open(true); });
+        item.addEventListener("mouseleave", () => { timer = setTimeout(() => open(false), 120); });
+        item.addEventListener("focusin", () => open(true));
+        item.addEventListener("focusout", (e) => {
+          if (!item.contains(e.relatedTarget)) open(false);
+        });
+        link?.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") { open(false); link.blur(); }
+        });
+      });
+
+      // back to top
+      const bt = document.querySelector("[data-backtotop]");
+      const onScroll = () => bt?.classList.toggle("show", window.scrollY > 900);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      bt?.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
+
+      // reading progress (only where a progress bar is present)
+      const pb = document.querySelector("[data-progress]");
+      if (pb) {
+        const upd = () => {
+          const h = document.documentElement;
+          const max = h.scrollHeight - h.clientHeight;
+          pb.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+        };
+        window.addEventListener("scroll", upd, { passive: true });
+        window.addEventListener("resize", upd);
+        upd();
+      }
     </script>
   </body>
 </html>
