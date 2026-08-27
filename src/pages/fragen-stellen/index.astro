@@ -1,12 +1,13 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
-const html = "<h2 id=\"alle-fragen-anzeigen\">Alle Fragen anzeigen</h2>\n<p>Auf dieser Seite finden Sie eine Übersicht über alle Fragen, die bereits auf unserer Website diskutiert wurden. Vielleicht ist die Antwort, die Sie suchen, hier bereits aufgeführt. Ist dies nicht der Fall? Dann können Sie Ihre Frage ganz einfach selbst einreichen.</p>";
+const html = "<h2 id=\"alle-fragen-anzeigen\">Alle Fragen anzeigen</h2>\n<p>Auf dieser Seite finden Sie eine Übersicht über alle Fragen, die bereits auf unserer Website diskutiert wurden. Vielleicht ist die Antwort, die Sie suchen, hier bereits aufgeführt. Ist dies nicht der Fall? Dann können Sie Ihre Frage ganz einfach selbst einreichen.</p><form class=\"form\" action=\"https://api.web3forms.com/submit\" method=\"POST\" data-contact-form>\n<input type=\"hidden\" name=\"access_key\" value=\"281f477d-7744-407d-9b6a-9b8d9c6abe3c\" />\n<input type=\"hidden\" name=\"subject\" value=\"Neue Nachricht ueber erwachsenenfragen.de\" />\n<input type=\"hidden\" name=\"from_name\" value=\"Erwachsenenfragen\" />\n<label class=\"hp\" aria-hidden=\"true\">Bot<input type=\"checkbox\" name=\"botcheck\" tabindex=\"-1\" autocomplete=\"off\" /></label>\n<h2 style=\"margin-top:0\">Schreiben Sie uns</h2>\n<div class=\"form-row form-2\">\n<div class=\"field\">\n<label for=\"cf-name\">Name <span class=\"req\" aria-hidden=\"true\">*</span></label>\n<input id=\"cf-name\" name=\"name\" type=\"text\" required autocomplete=\"name\" placeholder=\"Ihr Name\" />\n</div>\n<div class=\"field\">\n<label for=\"cf-email\">E-Mail-Adresse <span class=\"req\" aria-hidden=\"true\">*</span></label>\n<input id=\"cf-email\" name=\"email\" type=\"email\" required autocomplete=\"email\" placeholder=\"sie@beispiel.de\" />\n</div>\n</div>\n<div class=\"field\">\n<label for=\"cf-message\">Nachricht <span class=\"req\" aria-hidden=\"true\">*</span></label>\n<textarea id=\"cf-message\" name=\"message\" rows=\"6\" required placeholder=\"Womit koennen wir Ihnen helfen?\"></textarea>\n</div>\n<button class=\"btn\" type=\"submit\" data-send=\"Absenden\" data-sending=\"Wird gesendet...\">Absenden</button>\n<p class=\"form-status\" role=\"status\" aria-live=\"polite\"></p>\n<p class=\"form-note\">Wir verwenden Ihre Daten ausschliesslich zur Beantwortung Ihrer Nachricht.</p>\n</form>";
 const faq = [];
 ---
 <PageLayout
   title={"Stellen Sie Ihre Frage - AdultVragen.de"}
   description={"Haben Sie eine Frage und finden Sie die Antwort nicht auf unserer Website? Dann können Sie hier einfach und schnell Ihre Frage stellen."}
   h1={"Stellen Sie Ihre Frage - AdultVragen.de"}
+  noindex={false}
   faq={faq}
   crumb={[{ label: "Home", href: "/" }]}
 >
