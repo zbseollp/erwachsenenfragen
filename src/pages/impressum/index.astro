@@ -1,6 +1,6 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
-const html = "<p>Angaben gemäß § 5 TMG</p>\n<p><strong>Name des Unternehmens / Betreibers</strong>ZB SEO LLP</p>\n<p><strong>Kontakt</strong><br />E-Mail: <a href=\"/kontakt/\">Contact</a></p>\n<p><strong>Vertreten durch</strong>Rogier</p>\n<h3 id=\"haftung-f-r-inhalte\">Haftung für Inhalte</h3>\n<p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>\n<h3 id=\"haftung-f-r-links\">Haftung für Links</h3>\n<p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>\n<h3 id=\"urheberrecht\">Urheberrecht</h3>\n<p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.</p>\n<h3 id=\"hinweis-zu-lokalen-nachrichten\">Hinweis zu lokalen Nachrichten</h3>\n<p>Die Berichterstattung erfolgt nach journalistischen Grundsätzen. Trotz sorgfältiger Recherche kann keine Gewähr für Vollständigkeit, Richtigkeit und Aktualität übernommen werden.</p>";
+const segments = [["prose", "<p>Angaben gemäß § 5 TMG</p>\n<p><strong>Name des Unternehmens / Betreibers</strong>ZB SEO LLP</p>\n<p><strong>Kontakt</strong><br />E-Mail: <a href=\"/kontakt/\">Contact</a></p>\n<p><strong>Vertreten durch</strong>Rogier</p>\n<h3 id=\"haftung-f-r-inhalte\">Haftung für Inhalte</h3>\n<p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>\n<h3 id=\"haftung-f-r-links\">Haftung für Links</h3>\n<p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>\n<h3 id=\"urheberrecht\">Urheberrecht</h3>\n<p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.</p>\n<h3 id=\"hinweis-zu-lokalen-nachrichten\">Hinweis zu lokalen Nachrichten</h3>\n<p>Die Berichterstattung erfolgt nach journalistischen Grundsätzen. Trotz sorgfältiger Recherche kann keine Gewähr für Vollständigkeit, Richtigkeit und Aktualität übernommen werden.</p>"]];
 const faq = [];
 ---
 <PageLayout
@@ -11,5 +11,7 @@ const faq = [];
   faq={faq}
   crumb={[{ label: "Home", href: "/" }]}
 >
-  <Fragment set:html={html} />
+  {segments.map((s) => (
+    <div class={s[0] === "prose" ? "prose" : "seg-full"} set:html={s[1]} />
+  ))}
 </PageLayout>

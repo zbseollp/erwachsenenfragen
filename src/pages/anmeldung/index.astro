@@ -1,6 +1,6 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
-const html = "<h4 id=\"inloggen\">Inloggen</h4>\n<p>Vul hieronder je inloggegevens in om je account te bezoeken.</p>\n<p>Forgot password?</p>\n<h3 id=\"verify-your-email\">Verify Your Email</h3>\n<p>We have sent a 6-digit verification code to your email. Please enter it below to continue.</p>\n<h4 id=\"registreren\">Registreren</h4>\n<h3 id=\"verify-your-email\">Verify Your Email</h3>\n<p>We have sent a 6-digit verification code to your email. Please enter it below to continue.</p>\n<h3 id=\"h-ufig-gestellte-fragen\">Häufig gestellte Fragen</h3>\n<p>Auf dieser Website verkaufen wir die von uns rezensierten Produkte nicht selbst. Wir geben jedoch immer an, wo Sie diese Produkte bestellen können.</p>\n<p>Sie können auf dieser Website Ihren eigenen Benutzernamen wählen, den andere Benutzer sehen können. Sie benötigen jedoch eine E-Mail-Adresse, um ein Konto auf dieser Website einzurichten. Dies wird anderen Nutzern niemals angezeigt.</p>\n<p>Ja, wir nehmen gerne Themen von unseren Nutzern entgegen. Wir suchen jede Woche nach neuen Themen, über die wir schreiben können. Wir freuen uns auch über Tipps und Feedback zu unserer Website.</p>";
+const segments = [["prose", "<h4 id=\"inloggen\">Inloggen</h4>\n<p>Vul hieronder je inloggegevens in om je account te bezoeken.</p>\n<p>Forgot password?</p>\n<h3 id=\"verify-your-email\">Verify Your Email</h3>\n<p>We have sent a 6-digit verification code to your email. Please enter it below to continue.</p>\n<h4 id=\"registreren\">Registreren</h4>\n<h3 id=\"verify-your-email\">Verify Your Email</h3>\n<p>We have sent a 6-digit verification code to your email. Please enter it below to continue.</p>\n<h3 id=\"h-ufig-gestellte-fragen\">Häufig gestellte Fragen</h3>\n<p>Auf dieser Website verkaufen wir die von uns rezensierten Produkte nicht selbst. Wir geben jedoch immer an, wo Sie diese Produkte bestellen können.</p>\n<p>Sie können auf dieser Website Ihren eigenen Benutzernamen wählen, den andere Benutzer sehen können. Sie benötigen jedoch eine E-Mail-Adresse, um ein Konto auf dieser Website einzurichten. Dies wird anderen Nutzern niemals angezeigt.</p>\n<p>Ja, wir nehmen gerne Themen von unseren Nutzern entgegen. Wir suchen jede Woche nach neuen Themen, über die wir schreiben können. Wir freuen uns auch über Tipps und Feedback zu unserer Website.</p>"]];
 const faq = [];
 ---
 <PageLayout
@@ -11,5 +11,7 @@ const faq = [];
   faq={faq}
   crumb={[{ label: "Home", href: "/" }]}
 >
-  <Fragment set:html={html} />
+  {segments.map((s) => (
+    <div class={s[0] === "prose" ? "prose" : "seg-full"} set:html={s[1]} />
+  ))}
 </PageLayout>

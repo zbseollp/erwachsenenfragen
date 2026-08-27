@@ -1,6 +1,6 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
-const html = "<p>In der Kategorie bettwäsche und möbel finden Sie verschiedene Möbelstücke zur Einrichtung Ihres Zuhauses. Denken Sie an einen Beistelltisch, ein Betttisch, einen Matratzenbezug, einen Matratzenkeil, einen Matratzenschoner und vieles mehr. Schauen Sie sich alle unsere ausführlichen Bewertungen der Artikel in der Kategorie bettwäsche und möbel an.</p>\n<ul><li><a href=\"/beste-beistelltisch/\">Beistelltisch</a></li><li><a href=\"/beste-betttisch/\">Betttisch</a></li></ul>\n<ul><li>Hängesessel</li></ul>\n<ul><li><a href=\"/beste-kleiderschrank/\">Kleiderschrank</a></li></ul>\n<ul><li><a href=\"/beste-matratzenbezug/\">Matratzenbezug</a></li><li>Matratzenkeil</li><li><a href=\"/beste-matratzenschoner/\">Matratzenschoner</a></li></ul>\n<ul><li><a href=\"/beste-pouf/\">Pouf</a></li></ul>\n<ul><li><a href=\"/beste-satin-kopfkissenbezug/\">Satin-Kopfkissenbezug</a></li><li><a href=\"/beste-sitzsack/\">Sitzsack</a></li></ul>";
+const segments = [["prose", "<p>In der Kategorie bettwäsche und möbel finden Sie verschiedene Möbelstücke zur Einrichtung Ihres Zuhauses. Denken Sie an einen Beistelltisch, ein Betttisch, einen Matratzenbezug, einen Matratzenkeil, einen Matratzenschoner und vieles mehr. Schauen Sie sich alle unsere ausführlichen Bewertungen der Artikel in der Kategorie bettwäsche und möbel an.</p>\n<ul><li><a href=\"/beste-beistelltisch/\">Beistelltisch</a></li><li><a href=\"/beste-betttisch/\">Betttisch</a></li></ul>\n<ul><li>Hängesessel</li></ul>\n<ul><li><a href=\"/beste-kleiderschrank/\">Kleiderschrank</a></li></ul>\n<ul><li><a href=\"/beste-matratzenbezug/\">Matratzenbezug</a></li><li>Matratzenkeil</li><li><a href=\"/beste-matratzenschoner/\">Matratzenschoner</a></li></ul>\n<ul><li><a href=\"/beste-pouf/\">Pouf</a></li></ul>\n<ul><li><a href=\"/beste-satin-kopfkissenbezug/\">Satin-Kopfkissenbezug</a></li><li><a href=\"/beste-sitzsack/\">Sitzsack</a></li></ul>"]];
 const faq = [];
 ---
 <PageLayout
@@ -11,5 +11,7 @@ const faq = [];
   faq={faq}
   crumb={[{ label: "Home", href: "/" }]}
 >
-  <Fragment set:html={html} />
+  {segments.map((s) => (
+    <div class={s[0] === "prose" ? "prose" : "seg-full"} set:html={s[1]} />
+  ))}
 </PageLayout>

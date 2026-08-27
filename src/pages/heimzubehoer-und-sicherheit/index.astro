@@ -1,6 +1,6 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
-const html = "<p>In der Kategorie Wohnaccessoires und Sicherheit finden Sie alle nützlichen Accessoires für Ihr Zuhause und für die Sicherheit. Denken Sie an einen Duschkopf, eine Elektro Heizkörper, einen Feuerlöscher, einen Türstopper und mehr. Sehen Sie sich alle unsere ausführlichen Bewertungen der Artikel in der Heimzubehör und sicherheit Kategorie an.</p>\n<ul><li><a href=\"/beste-blumentopf/\">Blumentopf</a></li></ul>\n<ul><li><a href=\"/beste-duschkopf/\">Duschkopf</a></li></ul>\n<ul><li><a href=\"/beste-elektro-heizkoerper/\">Elektro Heizkörper</a></li></ul>\n<ul><li><a href=\"/beste-feuerloescher/\">Feuerlöscher</a></li></ul>\n<ul><li><a href=\"/beste-tuerstopper/\">Türstopper</a></li></ul>";
+const segments = [["prose", "<p>In der Kategorie Wohnaccessoires und Sicherheit finden Sie alle nützlichen Accessoires für Ihr Zuhause und für die Sicherheit. Denken Sie an einen Duschkopf, eine Elektro Heizkörper, einen Feuerlöscher, einen Türstopper und mehr. Sehen Sie sich alle unsere ausführlichen Bewertungen der Artikel in der Heimzubehör und sicherheit Kategorie an.</p>\n<ul><li><a href=\"/beste-blumentopf/\">Blumentopf</a></li></ul>\n<ul><li><a href=\"/beste-duschkopf/\">Duschkopf</a></li></ul>\n<ul><li><a href=\"/beste-elektro-heizkoerper/\">Elektro Heizkörper</a></li></ul>\n<ul><li><a href=\"/beste-feuerloescher/\">Feuerlöscher</a></li></ul>\n<ul><li><a href=\"/beste-tuerstopper/\">Türstopper</a></li></ul>"]];
 const faq = [];
 ---
 <PageLayout
@@ -11,5 +11,7 @@ const faq = [];
   faq={faq}
   crumb={[{ label: "Home", href: "/" }]}
 >
-  <Fragment set:html={html} />
+  {segments.map((s) => (
+    <div class={s[0] === "prose" ? "prose" : "seg-full"} set:html={s[1]} />
+  ))}
 </PageLayout>
